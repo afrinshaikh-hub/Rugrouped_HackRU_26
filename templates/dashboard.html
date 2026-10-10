@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Grouped | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="role-page">
+        <section class="role-card">
+
+            <img
+                src="{{ url_for('static', filename='images/Rutgers_Scarlet_Knights_logo.svg') }}"
+                alt="Rutgers Scarlet Knights logo"
+                class="rutgers-logo"
+            >
+
+            <h1>Welcome to RU Grouped!</h1>
+            <p>Find classmates to work with on your next project.</p>
+
+            <h2>My Courses</h2>
+
+            <div class="course-card">
+                <h3>Introduction to Computer Science</h3>
+                <p>Course: CS 111</p>
+                <p>Find classmates in your course to form a project group.</p>
+                <button class="primary-button"
+                        onclick="alert('Partner matching coming next!')">
+                    Find Partner
+                </button>
+            </div>
+
+            <p class="back-link">
+                <a href="/role-selection">Back to Role Selection</a>
+            </p>
+
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Grouped | Choose Role</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="role-page">
+        <section class="role-card">
+
+            <img
+                src="{{ url_for('static', filename='images/Rutgers_Scarlet_Knights_logo.svg') }}"
+                alt="Rutgers Scarlet Knights logo"
+                class="rutgers-logo"
+            >
+
+            <h1>RU Grouped</h1>
+            <h2>How are you using RU Grouped?</h2>
+            <p>Choose your role to continue.</p>
+
+            <div class="role-buttons">
+                <a class="primary-button" href="/dashboard">Student</a>
+
+                <button class="secondary-button"
+                        onclick="alert('Instructor features coming soon!')">
+                    Instructor
+                </button>
+            </div>
+
+            <p class="back-link">
+                <a href="/">Back to Login</a>
+            </p>
+
+        </section>
+    </main>
+</body>
+</html>

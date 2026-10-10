@@ -1,0 +1,204 @@
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.rutgers-logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.brand h1 {
+    margin: 8px 0 0;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.tagline {
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.login-form {
+    margin-top: 38px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px;
+    box-sizing: border-box;
+    border: 1px solid #aaaaaa;
+    border-radius: 7px;
+    background: #eeeeee;
+    box-shadow: inset 0 2px 5px #bbbbbb;
+}
+
+.primary-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background: #cc0033;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #a9002b;
+}
+
+.signup-prompt,
+.demo-note {
+    font-size: 12px;
+}
+
+.signup-prompt a {
+    color: #cc0033;
+    font-weight: bold;
+}
+
+
+/* Role selection page */
+
+.role-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.role-card {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.role-card h1 {
+    font-size: 34px;
+    font-weight: 900;
+    margin: 12px 0;
+}
+
+.role-card h2 {
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+.role-card p {
+    font-size: 14px;
+}
+
+.role-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.role-buttons a,
+.role-buttons button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.role-buttons .primary-button {
+    display: block;
+    background: #cc0033;
+    color: white;
+    border: none;
+}
+
+.role-buttons .primary-button:hover {
+    background: #a9002b;
+}
+
+.secondary-button {
+    background: white;
+    color: #cc0033;
+    border: 2px solid #cc0033;
+}
+
+.secondary-button:hover {
+    background: #fff0f3;
+}
+
+.back-link {
+    margin-top: 28px;
+}
+
+.back-link a {
+    color: #cc0033;
+    font-weight: bold;
+}
+
+
+/* Dashboard */
+
+.course-card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+.course-card h3 {
+    margin-top: 0;
+}
+
+.course-card .primary-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background: #cc0033;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

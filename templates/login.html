@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Grouped | Login</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="login-page">
+        <section class="login-card">
+
+            <header class="brand">
+<img
+    src="{{ url_for('static', filename='images/Rutgers_Scarlet_Knights_logo.svg') }}"
+    alt="Rutgers Scarlet Knights logo"
+    class="rutgers-logo"
+>                <h1>RU Grouped</h1>
+                <p class="tagline">Find your project group</p>
+            </header>
+
+            <form class="login-form" action="/" method="POST">
+                <div class="form-group">
+                    <label for="netid">NetID</label>
+                    <input id="netid" name="netid"
+                           type="text" placeholder="Enter demo username"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password"
+                           type="password" placeholder="Enter password"
+                           required>
+                </div>
+
+                <button class="primary-button" type="submit">
+                    Login
+                </button>
+            </form>
+
+            <p class="signup-prompt">
+                New here? <a href="/signup">Create an account</a>
+            </p>
+
+            <p class="demo-note">
+                Demo prototype — not connected to Rutgers authentication.
+            </p>
+
+        </section>
+    </main>
+</body>
+</html>
