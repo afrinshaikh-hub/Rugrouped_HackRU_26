@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RU Grouped | Dashboard</title>
+    <title>RU Grouped | Courses</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,25 +13,30 @@
     <main class="role-page">
         <section class="role-card">
 
-            <img
-                src="{{ url_for('static', filename='images/Rutgers_Scarlet_Knights_logo.svg') }}"
-                alt="Rutgers Scarlet Knights logo"
-                class="rutgers-logo"
-            >
+            <h1>Choose Your Course</h1>
+            <p>Select a course to find project partners in your class.</p>
 
-            <h1>Welcome to RU Grouped!</h1>
-            <p>Find classmates to work with on your next project.</p>
+            <div id="courses-container">
+                {% if courses %}
+                    {% for course in courses %}
+                        <div class="course-card">
+                            <h3>{{ course.course_name }}</h3>
 
-            <h2>My Courses</h2>
+                            <p>Course: {{ course.course_code }}</p>
+                            <p>Section: {{ course.section }}</p>
 
-            <div class="course-card">
-                <h3>Introduction to Computer Science</h3>
-                <p>Course: CS 111</p>
-                <p>Find classmates in your course to form a project group.</p>
-                <button class="primary-button"
-                        onclick="alert('Partner matching coming next!')">
-                    Find Partner
-                </button>
+                            <a class="primary-button"
+                               href="{{ url_for('classmates', course_id=course.id) }}">
+                                Find Partner
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="course-card">
+                        <h3>No courses available yet</h3>
+                        <p>Courses will appear here after an instructor uploads a roster.</p>
+                    </div>
+                {% endif %}
             </div>
 
             <p class="back-link">
