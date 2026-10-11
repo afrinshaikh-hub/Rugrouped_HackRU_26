@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile | RU Grouped</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="role-page">
+        <section class="role-card">
+
+            <h1>{{ student["first_name"] }} {{ student["last_name"] }}</h1>
+            <p>{{ student["major"] }}</p>
+
+            <div class="course-card">
+                <p>Graduation Year: {{ student["grad_year"] }}</p>
+                <p>Gender: {{ student["gender"] }}</p>
+                <p>About: {{ student["bio"] or "No bio added yet." }}</p>
+
+                <p>
+                    NetID: <strong>{{ student["netid"] }}</strong>
+                </p>
+                <p>You can use their NetID to contact them through Rutgers channels.</p>
+            </div>
+
+            <form action="{{ url_for('send_request') }}" method="POST">
+                <input type="hidden" name="receiver"
+                       value="{{ student['netid'] }}">
+
+                <input type="hidden" name="course_code"
+                       value="{{ course['code'] }}">
+
+                <input type="hidden" name="section"
+                       value="{{ course['section'] }}">
+
+                <div class="form-group">
+                    <label for="message">Message (optional)</label>
+                    <textarea id="message" name="message"
+                              placeholder="Hi! Would you like to work together on this project?"
+                              rows="3"></textarea>
+                </div>
+
+                <button class="primary-button" type="submit">
+                    Send Request
+                </button>
+            </form>
+
+            <p class="back-link">
+                <a href="{{ url_for('classmates',
+                    course_code=course['code'],
+                    section=course['section']) }}">
+                    Back to Classmates
+                </a>
+            </p>
+
+        </section>
+    </main>
+</body>
+</html>

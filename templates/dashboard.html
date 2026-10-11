@@ -20,13 +20,29 @@
                 {% if courses %}
                     {% for course in courses %}
                         <div class="course-card">
-                            <h3>{{ course.course_name }}</h3>
 
-                            <p>Course: {{ course.course_code }}</p>
-                            <p>Section: {{ course.section }}</p>
+                            <form action="/leave-course" method="POST"
+                                  class="leave-course-form"
+                                  onsubmit="return confirm('Leave this course?')">
+                                <input type="hidden" name="course_code"
+                                       value="{{ course['code'] }}">
+
+                                <button type="submit"
+                                        class="leave-course-button"
+                                        title="Leave course"
+                                        aria-label="Leave course">
+                                    &times;
+                                </button>
+                            </form>
+
+                            <h3>{{ course["title"] }}</h3>
+
+                            <p>Course: {{ course["code"] }}</p>
+                            <p>Professor: {{ course["professor"] }}</p>
+                            <p>Section: {{ course["section"] }}</p>
 
                             <a class="primary-button"
-                               href="{{ url_for('classmates', course_id=course.id) }}">
+                               href="/classmates?course_code={{ course['code'] }}&section={{ course['section'] }}">
                                 Find Partner
                             </a>
                         </div>

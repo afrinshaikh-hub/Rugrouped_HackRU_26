@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Partners | RU Grouped</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="role-page">
+        <section class="role-card">
+            <h1>Find a Project Partner</h1>
+            <h2>{{ course["title"] }}</h2>
+            <p>Course: {{ course["code"] }} · Section: {{ course["section"] }}</p>
+
+            <form action="{{ url_for('classmates') }}" method="GET">
+                <input type="hidden" name="course_code"
+                       value="{{ course['code'] }}">
+                <input type="hidden" name="section"
+                       value="{{ course['section'] }}">
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option value="">Any gender</option>
+                        {% for item in genders %}
+                            <option value="{{ item }}"
+                                {% if selected_gender == item %}selected{% endif %}>
+                                {{ item }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="grad_year">Graduation Year</label>
+                    <select id="grad_year" name="grad_year">
+                        <option value="">Any year</option>
+                        {% for year in years %}
+                            <option value="{{ year }}"
+                                {% if selected_year|string == year|string %}selected{% endif %}>
+                                {{ year }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="major">Major</label>
+                    <select id="major" name="major">
+                        <option value="">Any major</option>
+                        {% for item in majors %}
+                            <option value="{{ item }}"
+                                {% if selected_major == item %}selected{% endif %}>
+                                {{ item }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button class="primary-button" type="submit">
+                    Apply Filters
+                </button>
+
+                <a href="{{ url_for('classmates',
+                    course_code=course['code'],
+                    section=course['section']) }}">
+                    Clear Filters
+                </a>
+            </form>
+
+            <h2>Matching Classmates ({{ students|length }})</h2>
+
+            <div class="classmate-list">
+                {% if students %}
+                    {% for student in students %}
+                        <div class="course-card">
+                            <h3>
+                                {{ student["first_name"] }}
+                                {{ student["last_name"] }}
+                            </h3>
+                            <p>Major: {{ student["major"] }}</p>
+                            <p>Graduation Year: {{ student["grad_year"] }}</p>
+                            <p>Gender: {{ student["gender"] }}</p>
+
+                            <a class="primary-button"
+                               href="{{ url_for('profile',
+                                   netid=student['netid'],
+                                   course_code=course['code'],
+                                   section=course['section']) }}">
+                                View Profile
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="course-card">
+                        <h3>No students match your filters</h3>
+                        <p>Try removing a filter to see more classmates.</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <p class="back-link">
+                <a href="{{ url_for('dashboard') }}">Back to Courses</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>

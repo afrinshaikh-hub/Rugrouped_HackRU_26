@@ -219,3 +219,47 @@ body {
 .course-card a.primary-button:hover {
     background: #a9002b;
 }
+
+.course-card {
+    position: relative;
+}
+
+.leave-course-form {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    margin: 0;
+}
+
+.leave-course-button {
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+
+.leave-course-button:hover {
+    color: #cc0033;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    background: #fff;
+    font-size: 14px;
+}
+
+.classmate-list {
+    max-height: 600px;
+    overflow-y: auto;
+    margin-top: 16px;
+}
+
+.classmate-list .course-card {
+    margin-bottom: 14px;
+}
